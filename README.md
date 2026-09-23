@@ -38,6 +38,6 @@ With Python 3 installed, run this command from the project directory:
 python3 -m http.server 8000
 ```
 
-Open [http://localhost:8000](http://localhost:8000) in your browser.
+Open [http://hellocountries2.netlify.app](http://hellocountries2.netlify.app) in your browser.
 
 No build step or package installation is required. An internet connection is needed to load external libraries, fonts, and globe assets.
