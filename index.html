@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06090b">
+  <meta name="description" content="Five countries. A world of stories. Explore our planet, learn something new, and say hello.">
+  <title>Hello, World — A little closer to everywhere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/globe.gl@2.41.0/dist/globe.gl.min.js"></script>
+  <script defer src="countries.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="theme-wash" aria-hidden="true"></div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div id="cursor-glow" aria-hidden="true"></div>
+  <header class="header">
+    <a class="brand" href="#" aria-label="Hello, World home">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="13"/><ellipse cx="16" cy="16" rx="6" ry="13"/><path d="M3 16h26M6 8.5h20M6 23.5h20"/></svg>
+      Hello, World<span class="brand-dot">.</span>
+    </a>
+    <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="navigation">Explore <span>☰</span></button>
+    <nav id="navigation" aria-label="Destinations">
+      <button class="nav-home active" data-home aria-pressed="true">Home</button>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <button data-country="COL" aria-pressed="false"><span>🇨🇴</span> Colombia</button>
+      <button data-country="USA" aria-pressed="false"><span>🇺🇸</span> USA</button>
+      <button data-country="ARG" aria-pressed="false"><span>🇦🇷</span> Argentina</button>
+      <button data-country="ESP" aria-pressed="false"><span>🇪🇸</span> Spain</button>
+      <button data-country="DEU" aria-pressed="false"><span>🇩🇪</span> Germany</button>
+    </nav>
+    <span class="header-note"><i></i> A WORLD TO DISCOVER</span>
+  </header>
+
+  <main id="experience">
+    <div class="hero" id="hero">
+      <p class="eyebrow" id="eyebrow"><span></span> ONE PLANET. ENDLESS CONNECTIONS.</p>
+      <h1 id="greeting">Hello World<span class="headline-dot">.</span></h1>
+      <p class="hero-description" id="description">A little curiosity can take you a long way.</p>
+      <p class="hero-hint" id="hero-hint">Choose a country to say hello <span>↘</span></p>
+    </div>
+
+    <div id="globe-stage" role="img" aria-label="Interactive Earth. Drag to rotate, scroll to zoom, or use the country buttons.">
+      <div id="globe"></div>
+    </div>
+    <div id="loading" role="status"><span class="loader-orbit"></span><span>Bringing the world a little closer<small>Loading your planet…</small></span></div>
+    <div class="globe-error" id="globe-error" hidden><span>✦</span><h2>The world is still here.</h2><p id="error-message">The globe couldn’t load. You can still explore every country below.</p><button id="retry">Try again ↻</button></div>
+    <p class="asset-notice" id="asset-notice" role="status" hidden></p>
+
+    <div class="scene-caption"><span class="live-dot"></span><span id="scene-label">LIVE A LITTLE. EXPLORE A LOT.</span><small id="scene-detail">Your next hello is out there.</small></div>
+    <div class="globe-tools" aria-label="Globe controls">
+      <button id="zoom-in" aria-label="Zoom in" title="Zoom in">+</button>
+      <button id="zoom-out" aria-label="Zoom out" title="Zoom out">−</button>
+      <span></span>
+      <button id="rotation" aria-label="Pause globe rotation" aria-pressed="true" title="Pause globe rotation">Ⅱ</button>
+    </div>
+
+    <section class="destination-dock" aria-label="Choose a country">
+      <div class="dock-heading"><span>WHERE WILL YOU SAY HELLO?</span><span>05 DESTINATIONS <i>↗</i></span></div>
+      <div class="destination-list" id="destination-list"></div>
+    </section>
+
+    <aside class="country-panel" id="country-panel" aria-labelledby="panel-name" aria-hidden="true" inert>
+      <div class="panel-top"><span class="eyebrow">YOUR LITTLE FIELD GUIDE</span><button id="close-panel" aria-label="Close country guide and return home">×</button></div>
+      <div id="panel-content"></div>
+    </aside>
+
+    <footer class="footer"><span>A little closer to everywhere<span class="footer-star">✳</span></span><span class="interaction-help"><span>↔</span> Drag to explore <i>·</i> Scroll to zoom</span><span class="keyboard-help"><kbd>1</kbd> – <kbd>5</kbd> to travel <span><kbd>H</kbd> for home</span></span></footer>
+    <div id="announcement" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  </main>
+</body>
+</html>
